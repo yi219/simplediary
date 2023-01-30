@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 //id는 유일한 값, name은 중복 가능
 
 const DiaryEditor = () => {
@@ -16,8 +16,20 @@ const DiaryEditor = () => {
         });
     }
 
+    const authorRef = useRef();
+    const contentRef = useRef();
+
     const handleSubmit = () => {
-        console.log(state);
+        if(state.author.length < 1){
+            authorRef.current.focus();
+            //alert("No title");
+            return;
+        }
+        if(state.content.length < 1){
+            contentRef.current.focus();
+            //alert("No content");
+            return;
+        }
         alert("Saved!");
     }
 
@@ -25,10 +37,10 @@ const DiaryEditor = () => {
     return <div className="DiaryEditor">
         <h2>Today</h2>
         <div>
-            <input name = "author" value = {state.author} onChange = {handleChangeState}/>
+            <input ref = {authorRef} name = "author" value = {state.author} onChange = {handleChangeState}/>
         </div>
         <div>
-            <textarea name = "content" value = {state.content} onChange = {handleChangeState}/>
+            <textarea ref = {contentRef} name = "content" value = {state.content} onChange = {handleChangeState}/>
         </div>
         <div>
             <select name = "emotion" value = {state.emotion} onChange = {handleChangeState}>
