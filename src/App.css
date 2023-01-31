@@ -28,6 +28,32 @@
   cursor: pointer
 }
 
+.DiaryList {
+  border: 1px solid gray;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.DiaryItem {
+  border: 1px solid gray;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.DiaryItem .title {
+  font-weight: 640;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.DiaryItem .info {
+  margin-bottom: 10px;
+}
+
+.DiaryItem .date {
+  color: gray;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
