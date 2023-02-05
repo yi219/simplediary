@@ -1,7 +1,7 @@
 import {useRef, useState} from "react";
 //id는 유일한 값, name은 중복 가능
 
-const DiaryEditor = () => {
+const DiaryEditor = ({onCreate}) => {
 
     const [state, setState] = useState({
         author: "",
@@ -30,7 +30,13 @@ const DiaryEditor = () => {
             //alert("No content");
             return;
         }
+        onCreate(state.author, state.content, state.emotion);
         alert("Saved!");
+        setState({
+            author: "",
+            content: "",
+            emotion: 1,
+        })
     }
 
     //하나의 state, 하나의 상태 변화 함수

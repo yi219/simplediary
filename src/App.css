@@ -50,6 +50,10 @@
   margin-bottom: 10px;
 }
 
+.DiaryItem .content {
+  margin-bottom: 20px;
+}
+
 .DiaryItem .date {
   color: gray;
 }
